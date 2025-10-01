@@ -11,12 +11,13 @@ h1 {
   text-shadow:  3px  3px mediumturquoise,
     -3px -3px mediumturquoise,
     -3px  3px mediumturquoise,
-  3px -3px mediumturquoise;
+  3px -3px mediumturquoise,
 
-  text-shadow:  3px  3px lightyellow,
-    -3px -3px lightyellow,
-    -3px  3px lightyellow,
-  3px -3px lightyellow;
+6px  6px lightyellow,
+    -6px -6px lightyellow,
+    -6px  6px lightyellow,
+  6px -6px lightyellow;
+  letter-spacing: 3px;
 
 
 
