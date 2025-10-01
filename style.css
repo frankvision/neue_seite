@@ -11,6 +11,7 @@ h1 {
   padding: 60px;
   border: 2px solid mediumvioletred;
   margin: 0px;
+  border-radius: 40px;
   
   font-size:200px;
   text-shadow:  6px  6px mediumturquoise,
