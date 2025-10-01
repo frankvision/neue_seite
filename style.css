@@ -9,7 +9,7 @@ body{
 h1 {
   background-color: mediumorchid;
   padding: 60px;
-  border: 2px mediumvioletred;
+  border: 2px solid mediumvioletred;
   margin: 0px;
   
   font-size:200px;
