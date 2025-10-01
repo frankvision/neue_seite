@@ -8,10 +8,22 @@ body{
 
 h1 {
   font-size:200px;
-  text-shadow: 10px 10px mediumturquoise,
-    -10px -10px mediumturquoise,
-    -10px 10px mediumturquoise,
-  10px -10px mediumturquoise;
+  text-shadow:  3px  3px mediumturquoise,
+    -3px -3px mediumturquoise,
+    -3px  3px mediumturquoise,
+  3px -3px mediumturquoise;
+
+  text-shadow:  3px  3px lightyellow,
+    -3px -3px lightyellow,
+    -3px  3px lightyellow,
+  3px -3px lightyellow;
+
+
+
+
+
+
+
 }
 p {
   font-family: 'SUSE';
