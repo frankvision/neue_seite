@@ -16,7 +16,10 @@ h1 {
 20px  20px lightyellow,
     -20px -20px lightyellow,
     -20px  20px lightyellow,
-  20px -20px lightyellow;
+    20px  20px lightyellow,
+    -10px -10px lightyellow,
+    -15px  15px lightyellow,
+  10px -10px lightyellow;
   letter-spacing: 10px;
   transform: rotate(-5deg);
   
