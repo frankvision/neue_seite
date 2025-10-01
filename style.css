@@ -3,12 +3,13 @@ body{
   font-family: 'Revalia';
   text-align: center;
   background-color: lightslategrey;
-  text-shadow: 10px 10px mediumturquoise;
+
 }
-
-
 
 h1 {
   font-family: 'Veralia';
   font-size:200px;
+  text-shadow: 10px 10px mediumturquoise;
+  text-shadow: -10px -10px mediumturquoise;
+}
 }
