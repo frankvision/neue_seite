@@ -11,21 +11,8 @@ h1 {
   text-shadow:  6px  6px mediumturquoise,
     -6px -6px mediumturquoise,
     -6px  6px mediumturquoise,
-  6px -6px mediumturquoise,
-
-20px  20px lightyellow,
-    -20px -20px lightyellow,
-    -20px  20px lightyellow,
-    20px  20px lightyellow,
-    -10px -10px lightyellow,
-    -15px  15px lightyellow,
-  8px -8px lightyellow,
-     8px  8px lightyellow,
-    -7px -8px lightyellow,
-    -8px  8px lightyellow,
-  10px -10px lightyellow;
+  6px -6px mediumturquoise;
   letter-spacing: 10px;
-  transform: rotate(-5deg);
   
 
 
