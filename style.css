@@ -9,7 +9,9 @@ body{
 h1 {
   font-size:200px;
   text-shadow: 10px 10px mediumturquoise,
-    -10px -10px mediumturquoise;
+    -10px -10px mediumturquoise,
+    -10px 10px mediumturquoise,
+  10px -10px mediumturquoise;
 }
 p {
   font-family: 'SUSE';
