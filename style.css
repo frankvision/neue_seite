@@ -13,12 +13,13 @@ h1 {
     -6px  6px mediumturquoise,
   6px -6px mediumturquoise,
 
-6px  6px lightyellow,
-    -6px -6px lightyellow,
-    -6px  6px lightyellow,
-  6px -6px lightyellow;
+20px  20px lightyellow,
+    -20px -20px lightyellow,
+    -20px  20px lightyellow,
+  20px -20px lightyellow;
   letter-spacing: 10px;
   transform: rotate(-5deg);
+  
 
 
 
