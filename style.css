@@ -8,16 +8,17 @@ body{
 
 h1 {
   font-size:200px;
-  text-shadow:  3px  3px mediumturquoise,
-    -3px -3px mediumturquoise,
-    -3px  3px mediumturquoise,
-  3px -3px mediumturquoise,
+  text-shadow:  6px  6px mediumturquoise,
+    -6px -6px mediumturquoise,
+    -6px  6px mediumturquoise,
+  6px -6px mediumturquoise,
 
 6px  6px lightyellow,
     -6px -6px lightyellow,
     -6px  6px lightyellow,
   6px -6px lightyellow;
-  letter-spacing: 3px;
+  letter-spacing: 10px;
+  transform: rotate(-5deg);
 
 
 
