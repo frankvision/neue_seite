@@ -9,10 +9,11 @@ body{
 h1 {
    transform: scale(0.5);
   background-color: mediumorchid;
-  padding: 0px;
+  padding: 40px;
   border: 20px solid mediumturquoise;
   margin: 0px;
-  border-radius: 500px 1000px 700px 1100px;
+  #border-radius: 500px 1000px 700px 1100px;
+  border-radius: 600px;
   
   font-size:200px;
   text-shadow:  6px  6px mediumturquoise,
