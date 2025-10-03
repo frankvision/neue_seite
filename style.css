@@ -11,7 +11,7 @@ body {
   flex-direction: column;
 }
 .classone {
-  min-height: 100vh;
+
   background: none;
   display: flex;
   justify-content: center;
