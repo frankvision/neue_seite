@@ -23,6 +23,7 @@ html, body {
 
 h1{
   font-size: 10rem;
+  padding: 0.1rem;
 }
 p{
   font-size:5rem;
