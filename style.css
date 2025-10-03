@@ -9,13 +9,13 @@ html, body {
   position: relative;
 
   /* Background gradient */
-  background: linear-gradient(45deg, royalblue, magenta);
+  background: linear-gradient(45deg, yellow, lime);
   background-repeat: no-repeat;
   background-size: cover;
 
   /* Text styling */
   font-family: 'Impact', sans-serif;
-  color: white;
+  color: black;
   text-align: center;
   letter-spacing: 0.2rem;
 }
