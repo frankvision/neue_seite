@@ -26,6 +26,11 @@ h1{
   padding: 1rem;
   box-sizing: border-box;
   word-wrap: break-word;
+   font-size: clamp(2.5rem, 8vw, 6rem); /* scales with screen width */
+  padding: 0 1rem; /* keeps it off the edges */
+  white-space: nowrap; /* prevents line breaks */
+  overflow: hidden; /* ensures no horizontal scrollbars */
+  text-overflow: ellipsis; /* optional: adds "…" if text ever overflows */
 }
 p{
   font-size:5rem;
