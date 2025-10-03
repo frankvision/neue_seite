@@ -24,6 +24,8 @@ html, body {
 h1{
   font-size: 10rem;
   padding: 1rem;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 p{
   font-size:5rem;
