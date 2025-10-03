@@ -14,16 +14,21 @@ body {
   
 }
 .classone {
+  max-width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+
   background: none;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   color:white;
   font-size:10rem;
   font-family: 'Impact';
   letter-spacing:0.1rem;
   text-align: center;
-  padding:4rem;
   
 
 }
