@@ -9,7 +9,7 @@ html, body {
   position: relative;
 
   /* Background gradient */
-  background: linear-gradient(45deg, yellow, lime);
+  background: linear-gradient(to top, skyblue, white);
   background-repeat: no-repeat;
   background-size: cover;
 
