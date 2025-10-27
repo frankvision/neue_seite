@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html>
-  
-  <head>
-   
+<head>
+  <meta charset="UTF-8">
+  <title>forever64.com</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>forever64.com</h1>
+  <p>contact: jameskeyton7@gmail.com</p>
+  <p class="newstuff">this website is about the game of chess.</p>
 
-    <link rel="stylesheet" href="style.css">
+  <form id="contact-form">
+    <input type="text" id="name" placeholder="Your Name" required><br>
+    <input type="email" id="email" placeholder="Your Email" required><br>
+    <textarea id="message" placeholder="Your Message"></textarea><br>
+    <button type="submit">Send</button>
+  </form>
 
-    <meta charset="UTF-8">
-    <title>forever64.com</title>
+  <!-- Supabase library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
-
-    
-  </head>
-  <body>
-   <h1>forever64.com</h1>
-    <p>contact: jameskeyton7@gmail.com</p>
-    <p class="newstuff">this website is about the game of chess.
-    </p>
-    <form id="contact-form">
-  <input type="text" id="name" placeholder="Your Name" required><br>
-  <input type="email" id="email" placeholder="Your Email" required><br>
-  <textarea id="message" placeholder="Your Message"></textarea><br>
-  <button type="submit">Send</button>
-</form>
-    <body>
-  ...
-  <form id="contact-form">...</form>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
-
+  <!-- Your custom JS -->
+  <script>
     const supabase = supabase.createClient(
       'https://fyuekvnvicmcjznmauil.supabase.co',
-      'YOUR_ANON_PUBLIC_KEY'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5dWVrdm52aWNtY2p6bm1hdWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1NTczMDcsImV4cCI6MjA3NzEzMzMwN30.6nmbCJ1qTiqo3mByXaEutzg45vtmN2w4apJek1loYYw'
     );
 
     const form = document.getElementById('contact-form');
@@ -45,6 +37,7 @@
       const { error } = await supabase.from('messages').insert([{ name, email, message }]);
       if (error) {
         alert('Error: ' + error.message);
+        console.error(error);
       } else {
         alert('Message sent!');
         form.reset();
@@ -52,13 +45,4 @@
     });
   </script>
 </body>
-
-
-
-     
-    
-    
-    
-    
-    </body>
-  </html>
+</html>
