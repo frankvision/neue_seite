@@ -15,6 +15,21 @@
     'https://fyuekvnvicmcjznmauil.supabase.co',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5dWVrdm52aWNtY2p6bm1hdWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1NTczMDcsImV4cCI6MjA3NzEzMzMwN30.6nmbCJ1qTiqo3mByXaEutzg45vtmN2w4apJek1loYYw'
   );
+   const form = document.getElementById('contact-form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  const { error } = await supabase.from('messages').insert([{ name, email, message }]);
+  if (error) {
+    alert('Error: ' + error.message);
+  } else {
+    alert('Message sent!');
+    form.reset();
+  }
+});
 </script>
 
     
@@ -30,24 +45,7 @@
   <textarea id="message" placeholder="Your Message"></textarea><br>
   <button type="submit">Send</button>
 </form>
-    <script>
-      const form = document.getElementById('contact-form');
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
 
-  const { error } = await supabase.from('messages').insert([{ name, email, message }]);
-  if (error) {
-    alert('Error: ' + error.message);
-  } else {
-    alert('Message sent!');
-    form.reset();
-  }
-});
-
-    </script>
 
      
     
