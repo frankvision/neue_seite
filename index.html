@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>forever64.com</title>
@@ -10,7 +10,6 @@
   <p>contact: jameskeyton7@gmail.com</p>
   <p class="newstuff">This website is about the game of chess.</p>
 
-  <!-- Contact Form -->
   <form id="contact-form">
     <input type="text" id="name" placeholder="Your Name" required><br>
     <input type="email" id="email" placeholder="Your Email" required><br>
@@ -21,33 +20,36 @@
   <!-- Supabase Library -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <!-- Your Custom JS -->
+  <!-- Custom JS -->
   <script>
-    // Initialize Supabase
-    const supabase = supabase.createClient(
-      'https://fyuekvnvicmcjznmauil.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5dWVrdm52aWNtY2p6bm1hdWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1NTczMDcsImV4cCI6MjA3NzEzMzMwN30.6nmbCJ1qTiqo3mByXaEutzg45vtmN2w4apJek1loYYw'
-    );
+    // Wait for the DOM to fully load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Supabase client
+      const supabase = supabase.createClient(
+        'https://fyuekvnvicmcjznmauil.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5dWVrdm52aWNtY2p6bm1hdWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1NTczMDcsImV4cCI6MjA3NzEzMzMwN30.6nmbCJ1qTiqo3mByXaEutzg45vtmN2w4apJek1loYYw'
+      );
 
-    // Attach submit event after DOM is loaded
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+      const form = document.getElementById('contact-form');
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-      // Insert into Supabase
-      const { error } = await supabase.from('messages').insert([{ name, email, message }]);
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
 
-      if (error) {
-        alert('Error sending message: ' + error.message);
-        console.error(error);
-      } else {
-        alert('Message sent!');
-        form.reset();
-      }
+        // Insert data into Supabase
+        const { data, error } = await supabase.from('messages').insert([{ name, email, message }]);
+
+        if (error) {
+          alert('Error sending message: ' + error.message);
+          console.error(error);
+        } else {
+          alert('Message sent!');
+          form.reset();
+        }
+      });
     });
   </script>
 </body>
