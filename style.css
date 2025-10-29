@@ -16,6 +16,10 @@ h1 {
   font-size: 300%;
 }
 body {
+    background-repeat: no-repeat;    
+  background-size: cover;           
+  min-height: 100vh;              
+  margin: 0;                     
   background: linear-gradient(30deg, red, silver);
 }
 form {
