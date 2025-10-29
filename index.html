@@ -2,55 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>forever64.com</title>
-  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-  <h1>forever64.com</h1>
-  <p>contact: jameskeyton7@gmail.com</p>
-  <p class="newstuff">This website is about the game of chess.</p>
-
-  <form id="contact-form">
-    <input type="text" id="name" placeholder="Your Name" required><br>
-    <input type="email" id="email" placeholder="Your Email" required><br>
-    <textarea id="message" placeholder="Your Message"></textarea><br>
-    <button type="submit">Send</button>
+  <h1 class="ready">forever64.com</h1>
+  <form>
+    <h1>New Account</h1>
+     <fieldset> 
+        <legend>Account Information</legend>
+     <div>
+        <label for="name">Name: 
+          <input id="name" type="text" required/>
+        </label>
+        </div>
+       
+        <div>
+            <label for="lastName">Last Name: 
+          <input id="lastName" type="text" required/>
+        </label>
+        </div>
+       
+        <div>
+        <label for='email'> Email:
+          <input id='email' type='email' required/>
+        </label>
+        </div>
+       
+        <div>
+        <label for='password'> Password:
+          <input id='password' type='password' required/>
+        </label>
+        </div>
+       
+        <div>
+        <label for='confirmpass'>Confirm Password: <input id='confirmpass'  type='password' required/>
+        </label>
+        </div>
+       
+       <button type='submit' id='submit'> Send</button>
+ 
+      </fieldset>
   </form>
+        
+  <script type="module">
+  // 1️⃣ Import Supabase client directly from CDN
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-  <!-- Supabase Library -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  // 2️⃣ Your Supabase credentials
+  const supabaseUrl = 'YOUR_SUPABASE_URL'        // ← replace with your Supabase project URL
+  const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'   // ← replace with your anon/public API key
+  const supabase = createClient(supabaseUrl, supabaseKey)
 
-  <!-- Custom JS -->
-  <script>
-    // Wait for the DOM to fully load
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize Supabase client
-      const supabase = supabase.createClient(
-        'https://fyuekvnvicmcjznmauil.supabase.co',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5dWVrdm52aWNtY2p6bm1hdWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1NTczMDcsImV4cCI6MjA3NzEzMzMwN30.6nmbCJ1qTiqo3mByXaEutzg45vtmN2w4apJek1loYYw'
-      );
+  // 3️⃣ Get the form element
+  const form = document.querySelector('form')
 
-      const form = document.getElementById('contact-form');
+  // 4️⃣ Handle submit
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault() // prevent page reload
 
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    // Collect form data
+    const name = document.getElementById('name').value
+    const lastName = document.getElementById('lastName').value
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+    // 5️⃣ Insert into Supabase
+    const { data, error } = await supabase
+      .from('users')
+      .insert([
+        { name, last_name: lastName, email, password }
+      ])
 
-        // Insert data into Supabase
-        const { data, error } = await supabase.from('messages').insert([{ name, email, message }]);
-
-        if (error) {
-          alert('Error sending message: ' + error.message);
-          console.error(error);
-        } else {
-          alert('Message sent!');
-          form.reset();
-        }
-      });
-    });
-  </script>
+    // 6️⃣ Handle result
+    if (error) {
+      console.error(error)
+      alert('❌ Something went wrong! Check console for details.')
+    } else {
+      console.log('✅ User added:', data)
+      alert('✅ Account successfully created!')
+      form.reset()
+    }
+  })
+</script>
+      
+        
+          
+    
+  
 </body>
 </html>
