@@ -76,6 +76,9 @@ form.addEventListener('submit', async (event) => {
     email,
     password
   })
+  console.log('Auth data:', authData)
+console.log('Auth error:', authError)
+
 
   if (authError) {
     alert('❌ Signup failed!')
