@@ -49,45 +49,56 @@
   </form>
         
   <script type="module">
-  // 1️⃣ Import Supabase client directly from CDN
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-  // 2️⃣ Your Supabase credentials
-  const supabaseUrl = 'https://fyuekvnvicmcjznmauil.supabase.co'        // ← replace with your Supabase project URL
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5dWVrdm52aWNtY2p6bm1hdWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1NTczMDcsImV4cCI6MjA3NzEzMzMwN30.6nmbCJ1qTiqo3mByXaEutzg45vtmN2w4apJek1loYYw'   // ← replace with your anon/public API key
-  const supabase = createClient(supabaseUrl, supabaseKey)
+const supabaseUrl = 'https://fyuekvnvicmcjznmauil.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5dWVrdm52aWNtY2p6bm1hdWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1NTczMDcsImV4cCI6MjA3NzEzMzMwN30.6nmbCJ1qTiqo3mByXaEutzg45vtmN2w4apJek1loYYw'
+const supabase = createClient(supabaseUrl, supabaseKey)
 
-  // 3️⃣ Get the form element
-  const form = document.querySelector('form')
+const form = document.querySelector('form')
 
-  // 4️⃣ Handle submit
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault() // prevent page reload
+form.addEventListener('submit', async (event) => {
+  event.preventDefault()
 
-    // Collect form data
-    const name = document.getElementById('name').value
-    const lastName = document.getElementById('lastName').value
-    const email = document.getElementById('email').value
-    const password = document.getElementById('password').value
+  const name = document.getElementById('name').value
+  const lastName = document.getElementById('lastName').value
+  const email = document.getElementById('email').value
+  const password = document.getElementById('password').value
+  const confirmPass = document.getElementById('confirmpass').value
 
-    // 5️⃣ Insert into Supabase
-    const { data, error } = await supabase
-      .from('users')
-      .insert([
-        { name, last_name: lastName, email, password }
-      ])
+  if (password !== confirmPass) {
+    alert("❌ Passwords don't match!")
+    return
+  }
 
-    // 6️⃣ Handle result
-    if (error) {
-      console.error(error)
-      alert('❌ Something went wrong! Check console for details.')
-    } else {
-      console.log('✅ User added:', data)
-      alert('✅ Account successfully created!')
-      form.reset()
-    }
+  // Sign up user securely
+  const { data: authData, error: authError } = await supabase.auth.signUp({
+    email,
+    password
   })
+
+  if (authError) {
+    alert('❌ Signup failed!')
+    console.error(authError)
+    return
+  }
+
+  // Insert profile into your new table
+  const { data, error } = await supabase
+    .from('newstuff')
+    .insert([{ user_id: authData.user.id, name, last_name: lastName }])
+
+  if (error) {
+    alert('❌ Failed to store profile info')
+    console.error(error)
+    return
+  }
+
+  alert('✅ Account created successfully!')
+  form.reset()
+})
 </script>
+
       
         
           
